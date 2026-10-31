@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Daily News — головні новини світу, технологій, економіки та культури.">
+  <title>Daily News — News that matters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <style>
+    :root { --ink:#212529; --muted:#6c757d; --line:#e9ecef; --blue:#0d6efd; --paper:#f5f6f8; }
+    body { font-family:'Inter',sans-serif; line-height:1.6; color:#343a40; background:var(--paper); }
+    .top-bar { background:#343a40; color:#adb5bd; font-size:.85rem; padding:.5rem 0; }
+    .top-bar .social-icons a { color:#adb5bd; margin-left:10px; transition:color .2s ease; }
+    .top-bar .social-icons a:hover { color:#fff; }
+    .header-main { background:#fff; padding:1.5rem 0; border-bottom:1px solid var(--line); }
+    .header-main .logo { font-family:'Times New Roman',serif; font-size:clamp(2.25rem,5vw,3.5rem); font-weight:bold; color:var(--ink); letter-spacing:-.06em; }
+    .logo .logo-dot { color:var(--blue); }
+    .ad-banner { background:#e9ecef; min-height:90px; display:flex; align-items:center; justify-content:center; color:#6c757d; font-size:1.2rem; border-radius:.25rem; width:min(100%,728px); }
+    .main-navbar { background:#fff; border-bottom:1px solid var(--line); margin-bottom:2rem; padding:.5rem 0; }
+    .main-navbar .nav-link { font-weight:600; color:#343a40; padding:.75rem 1rem; }
+    .main-navbar .nav-link:hover,.main-navbar .nav-link.active { color:#007bff; }
+    .navbar-toggler { border:0; }
+    .section-kicker { color:var(--blue); font-size:.75rem; text-transform:uppercase; letter-spacing:.12em; font-weight:800; }
+    .section-heading { font-family:'Times New Roman',serif; font-weight:700; color:var(--ink); }
+    .featured-article { background:#fff; border-radius:.5rem; overflow:hidden; box-shadow:0 .5rem 1rem rgba(0,0,0,.1); margin-bottom:2rem; display:flex; flex-direction:column; }
+    .featured-img { width:100%; height:400px; object-fit:cover; background:#e9ecef; }
+    .featured-content { padding:2rem; flex-grow:1; }
+    .card-category { font-size:.75rem; font-weight:bold; text-transform:uppercase; color:#007bff; margin-bottom:.5rem; display:block; letter-spacing:.08em; }
+    .featured-title { font-family:'Times New Roman',serif; font-weight:bold; color:#212529; font-size:clamp(1.8rem,3vw,2.55rem); line-height:1.12; margin-bottom:.75rem; }
+    .featured-text { font-size:1rem; color:#495057; max-width:70ch; }
+    .featured-meta { font-size:.85rem; color:#868e96; margin-top:1rem; }
+    .news-card { background:#fff; border:1px solid #e9ecef; border-radius:.5rem; overflow:hidden; height:100%; display:flex; flex-direction:column; transition:box-shadow .3s ease,transform .3s ease; }
+    .news-card:hover { box-shadow:0 .5rem 1rem rgba(0,0,0,.1); transform:translateY(-3px); }
+    .news-card .card-img-top { width:100%; height:200px; object-fit:cover; background:#e9ecef; }
+    .news-card .card-body { padding:1.25rem; flex-grow:1; display:flex; flex-direction:column; }
+    .news-card .card-title { font-family:'Times New Roman',serif; font-weight:bold; color:#212529; font-size:1.35rem; margin-bottom:.75rem; line-height:1.2; }
+    .news-card .card-text { font-size:.9rem; color:#6c757d; flex-grow:1; }
+    .news-card .card-footer { background:#fff; border-top:1px solid #e9ecef; padding:.75rem 1.25rem; font-size:.8rem; color:#868e96; margin-top:auto; }
+    .sidebar-section { background:#fff; border:1px solid #e9ecef; border-radius:.5rem; padding:1.5rem; margin-bottom:1.5rem; }
+    .sidebar-section h5 { font-family:'Times New Roman',serif; font-weight:bold; color:#212529; margin-bottom:1rem; }
+    .sidebar-section .list-group-item { border:0; padding:.75rem 0; color:#495057; }
+    .sidebar-section .list-group-item a { color:inherit; text-decoration:none; }
+    .sidebar-section .list-group-item:hover,.sidebar-section .list-group-item a:hover { color:#007bff; }
+    .ad-block { background:#e9ecef; min-height:250px; display:flex; align-items:center; justify-content:center; color:#6c757d; font-size:1rem; border-radius:.25rem; text-align:center; }
+    .must-read-card { background:#fff; border:1px solid #e9ecef; border-radius:.5rem; overflow:hidden; display:flex; flex-direction:row; margin-bottom:1.5rem; height:100%; transition:box-shadow .3s ease; }
+    .must-read-card:hover { box-shadow:0 .25rem .5rem rgba(0,0,0,.08); }
+    .must-read-card .card-img { width:150px; height:auto; min-height:100%; object-fit:cover; background:#e9ecef; flex-shrink:0; }
+    .must-read-card .card-body { padding:1rem; display:flex; flex-direction:column; flex-grow:1; }
+    .must-read-card .card-title { font-family:'Times New Roman',serif; font-weight:bold; color:#212529; font-size:1.2rem; margin-bottom:.5rem; }
+    .must-read-card .card-text { font-size:.85rem; color:#6c757d; flex-grow:1; }
+    .must-read-card .card-meta { font-size:.75rem; color:#868e96; margin-top:.5rem; }
+    .footer { background:#343a40; color:#fff; padding:3rem 0; font-size:.9rem; margin-top:3rem; }
+    .footer h5 { color:#fff; margin-bottom:1rem; font-weight:bold; }
+    .footer ul { list-style:none; padding:0; }
+    .footer ul li a { color:#adb5bd; text-decoration:none; padding:.25rem 0; display:block; }
+    .footer ul li a:hover { color:#fff; }
+    .footer .copyright { border-top:1px solid #495057; padding-top:1.5rem; margin-top:2rem; color:#adb5bd; font-size:.8rem; }
+    .btn-primary { background:var(--blue); }
+    @media (max-width:767.98px) {
+      .featured-img { height:260px; }
+      .featured-content { padding:1.25rem; }
+      .must-read-card { flex-direction:column; }
+      .must-read-card .card-img { width:100%; height:200px; }
+      .header-main .logo { margin-bottom:.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid top-bar d-none d-md-block">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="top-info"><span><i class="far fa-calendar-alt me-1"></i>Saturday, October 31, 2026</span><span class="ms-3"><i class="fas fa-cloud-sun me-1"></i>Kyiv 12°C</span></div>
+      <div class="social-icons" aria-label="Social networks"><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a><a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a></div>
+    </div>
+  </div>
+  <header class="container-fluid header-main">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <a class="logo text-decoration-none" href="#top" aria-label="Daily News home">Daily News<span class="logo-dot">.</span></a>
+      <div class="ad-banner mt-3 mt-md-0 d-none d-md-flex">Advertisement Banner 728 × 90</div>
+    </div>
+  </header>
+  <nav class="navbar navbar-expand-lg navbar-light main-navbar" aria-label="Main navigation">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#top">Home</a></li><li class="nav-item"><a class="nav-link" href="#world">World</a></li><li class="nav-item"><a class="nav-link" href="#politics">Politics</a></li><li class="nav-item"><a class="nav-link" href="#business">Business</a></li><li class="nav-item"><a class="nav-link" href="#technology">Technology</a></li><li class="nav-item"><a class="nav-link" href="#sports">Sports</a></li><li class="nav-item"><a class="nav-link" href="#culture">Culture</a></li>
+        </ul>
+        <form class="d-flex" role="search" onsubmit="event.preventDefault(); const q=this.querySelector('input').value.toLowerCase(); document.querySelectorAll('[data-search]').forEach(c=>c.hidden=!!q&&!c.dataset.search.includes(q));">
+          <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search"><button class="btn btn-outline-primary" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container" id="top">
+    <div class="row g-4">
+      <section class="col-12 col-lg-8" aria-label="Latest news">
+        <article class="featured-article" id="technology">
+          <img class="featured-img" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=85" alt="Abstract artificial intelligence network" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e9ecef/6c757d?text=Future+Technologies';">
+          <div class="featured-content"><span class="card-category">Technology · Featured</span><h1 class="featured-title">The Future of Artificial Intelligence: New Horizons</h1><p class="featured-text">Experts predict that artificial intelligence will continue to transform our lives, from medicine to education. New developments promise practical tools that help people solve complex problems and make better decisions.</p><p class="featured-meta mb-0"><i class="far fa-clock me-1"></i>2 hours ago <span class="mx-2">|</span><i class="far fa-comment me-1"></i>12 comments</p></div>
+        </article>
+        <h2 class="h4 section-heading mb-3">Latest News</h2>
+        <div class="row g-4">
+          <div class="col-12 col-md-6" data-search="economy markets business growth"><article class="news-card" id="business"><img class="card-img-top" src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=800&q=80" alt="Modern business district" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e9ecef/6c757d?text=Economy';"><div class="card-body"><span class="card-category">Economy</span><h3 class="card-title">Markets look toward a steadier year of growth</h3><p class="card-text">Analysts see room for cautious optimism as businesses adapt to a changing global economy.</p></div><div class="card-footer"><i class="far fa-clock me-1"></i>3 hours ago</div></article></div>
+          <div class="col-12 col-md-6" data-search="politics cities communities leaders"><article class="news-card" id="politics"><img class="card-img-top" src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=800&q=80" alt="Government building" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e9ecef/6c757d?text=Politics';"><div class="card-body"><span class="card-category">Politics</span><h3 class="card-title">Cities put local priorities at the center</h3><p class="card-text">New civic initiatives are bringing residents and public officials into closer conversation.</p></div><div class="card-footer"><i class="far fa-clock me-1"></i>4 hours ago</div></article></div>
+          <div class="col-12 col-md-6" data-search="culture books reading authors literature"><article class="news-card" id="culture"><img class="card-img-top" src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=800&q=80" alt="Books on a shelf" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e9ecef/6c757d?text=Culture';"><div class="card-body"><span class="card-category">Culture</span><h3 class="card-title">The books starting conversations this season</h3><p class="card-text">A new wave of writers is finding fresh ways to tell stories about identity, place and change.</p></div><div class="card-footer"><i class="far fa-clock me-1"></i>5 hours ago</div></article></div>
+          <div class="col-12 col-md-6" data-search="sports athletics stadium team"><article class="news-card" id="sports"><img class="card-img-top" src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80" alt="Athlete running on a track" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e9ecef/6c757d?text=Sports';"><div class="card-body"><span class="card-category">Sports</span><h3 class="card-title">A dramatic finish gives the season a new shape</h3><p class="card-text">A late surge changed the standings and set up an exciting final stretch for the teams.</p></div><div class="card-footer"><i class="far fa-clock me-1"></i>6 hours ago</div></article></div>
+        </div>
+      </section>
+      <aside class="col-12 col-lg-4" aria-label="News sidebar">
+        <section class="sidebar-section"><h2 class="h5">Popular Posts</h2><ul class="list-group list-group-flush"><li class="list-group-item"><a href="#technology">How technology is changing everyday life</a></li><li class="list-group-item"><a href="#business">What readers should know about the economy</a></li><li class="list-group-item"><a href="#culture">Five cultural moments to watch</a></li><li class="list-group-item"><a href="#world">A closer look at the week in world news</a></li><li class="list-group-item"><a href="#sports">The stories behind the weekend's big games</a></li></ul></section>
+        <section class="sidebar-section"><h2 class="h5">Advertisement</h2><div class="ad-block">Advertisement<br>300 × 250</div></section>
+        <section class="sidebar-section"><h2 class="h5">Categories</h2><ul class="list-group list-group-flush"><li class="list-group-item"><a href="#technology">Technology <span class="float-end">23</span></a></li><li class="list-group-item"><a href="#business">Economy <span class="float-end">18</span></a></li><li class="list-group-item"><a href="#politics">Politics <span class="float-end">15</span></a></li><li class="list-group-item"><a href="#sports">Sports <span class="float-end">20</span></a></li><li class="list-group-item"><a href="#culture">Culture <span class="float-end">10</span></a></li></ul></section>
+      </aside>
+    </div>
+
+    <section aria-labelledby="must-read-title"><h2 id="must-read-title" class="h3 section-heading mt-5 mb-4 text-center">Must Read</h2><div class="row g-4 must-read-section">
+      <div class="col-12 col-md-6 d-flex"><article class="must-read-card w-100"><img class="card-img" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=500&q=80" alt="Planet Earth at night" onerror="this.onerror=null;this.src='https://placehold.co/300x200/e9ecef/6c757d?text=World';"><div class="card-body"><h3 class="card-title">A changing world, seen from above</h3><p class="card-text">Satellite research is giving communities a clearer view of environmental change.</p><div class="card-meta"><i class="far fa-clock me-1"></i>Today, 9:15 AM</div></div></article></div>
+      <div class="col-12 col-md-6 d-flex"><article class="must-read-card w-100"><img class="card-img" src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=500&q=80" alt="Medical research laboratory" onerror="this.onerror=null;this.src='https://placehold.co/300x200/e9ecef/6c757d?text=Health';"><div class="card-body"><h3 class="card-title">Small discoveries with a big impact</h3><p class="card-text">Researchers are exploring promising approaches to more accessible healthcare.</p><div class="card-meta"><i class="far fa-clock me-1"></i>Today, 8:40 AM</div></div></article></div>
+      <div class="col-12 col-md-6 d-flex"><article class="must-read-card w-100"><img class="card-img" src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=500&q=80" alt="Mountain lake landscape" onerror="this.onerror=null;this.src='https://placehold.co/300x200/e9ecef/6c757d?text=Travel';"><div class="card-body"><h3 class="card-title">A slower way to explore the outdoors</h3><p class="card-text">Local guides share thoughtful routes for a more rewarding weekend away.</p><div class="card-meta"><i class="far fa-clock me-1"></i>Yesterday, 6:20 PM</div></div></article></div>
+      <div class="col-12 col-md-6 d-flex"><article class="must-read-card w-100"><img class="card-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=500&q=80" alt="Circuit board close-up" onerror="this.onerror=null;this.src='https://placehold.co/300x200/e9ecef/6c757d?text=Gadgets';"><div class="card-body"><h3 class="card-title">The next generation of personal devices</h3><p class="card-text">Designers are balancing useful features with longer-lasting, repairable products.</p><div class="card-meta"><i class="far fa-clock me-1"></i>Yesterday, 4:05 PM</div></div></article></div>
+    </div></section>
+
+    <section aria-labelledby="popular-title"><h2 id="popular-title" class="h3 section-heading mt-5 mb-4 text-center">Popular News</h2><div class="row g-4 mb-5">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-search="travel slow tourism"><article class="news-card"><img class="card-img-top" src="https://images.unsplash.com/photo-1488643071448-7d3b7c01e78e?auto=format&fit=crop&w=600&q=80" alt="Travel destination" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e9ecef/6c757d?text=Travel';"><div class="card-body"><span class="card-category">Travel</span><h3 class="card-title">Finding the joy in the journey</h3></div><div class="card-footer"><i class="far fa-clock me-1"></i>1 hour ago</div></article></div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-search="music live sound"><article class="news-card"><img class="card-img-top" src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=600&q=80" alt="Singer performing live" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e9ecef/6c757d?text=Music';"><div class="card-body"><span class="card-category">Music</span><h3 class="card-title">Live music finds a new rhythm</h3></div><div class="card-footer"><i class="far fa-clock me-1"></i>2 hours ago</div></article></div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-search="gadgets design devices"><article class="news-card"><img class="card-img-top" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="People working with technology" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e9ecef/6c757d?text=Gadgets';"><div class="card-body"><span class="card-category">Gadgets</span><h3 class="card-title">Useful tech with a lighter footprint</h3></div><div class="card-footer"><i class="far fa-clock me-1"></i>3 hours ago</div></article></div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-search="science research discovery"><article class="news-card"><img class="card-img-top" src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=600&q=80" alt="Scientific glassware in a lab" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e9ecef/6c757d?text=Science';"><div class="card-body"><span class="card-category">Science</span><h3 class="card-title">The questions driving new research</h3></div><div class="card-footer"><i class="far fa-clock me-1"></i>4 hours ago</div></article></div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-search="space astronomy stars"><article class="news-card"><img class="card-img-top" src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=600&q=80" alt="Earth seen from space" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e9ecef/6c757d?text=Space';"><div class="card-body"><span class="card-category">Space</span><h3 class="card-title">A new perspective on our planet</h3></div><div class="card-footer"><i class="far fa-clock me-1"></i>5 hours ago</div></article></div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-search="food cuisine cooking"><article class="news-card"><img class="card-img-top" src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=600&q=80" alt="Fresh ingredients for cooking" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e9ecef/6c757d?text=Food';"><div class="card-body"><span class="card-category">Food</span><h3 class="card-title">Fresh ideas for the everyday table</h3></div><div class="card-footer"><i class="far fa-clock me-1"></i>6 hours ago</div></article></div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-search="art gallery artists"><article class="news-card"><img class="card-img-top" src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=600&q=80" alt="Colorful painting in a gallery" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e9ecef/6c757d?text=Art';"><div class="card-body"><span class="card-category">Art</span><h3 class="card-title">Artists reshape the gallery experience</h3></div><div class="card-footer"><i class="far fa-clock me-1"></i>7 hours ago</div></article></div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" data-search="finance money markets"><article class="news-card"><img class="card-img-top" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Financial charts on a screen" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e9ecef/6c757d?text=Finance';"><div class="card-body"><span class="card-category">Finance</span><h3 class="card-title">Making sense of the week's numbers</h3></div><div class="card-footer"><i class="far fa-clock me-1"></i>8 hours ago</div></article></div>
+    </div></section>
+  </main>
+  <footer class="footer"><div class="container"><div class="row g-4">
+    <div class="col-12 col-md-4"><h2 class="h5">About Us</h2><p class="mb-0">Daily News brings readers clear, useful reporting on the stories shaping our communities and the wider world.</p></div>
+    <div class="col-12 col-md-4"><h2 class="h5">Quick Links</h2><ul><li><a href="#privacy">Privacy Policy</a></li><li><a href="#terms">Terms of Use</a></li><li><a href="#contact">Contact Us</a></li><li><a href="#sitemap">Sitemap</a></li></ul></div>
+    <div class="col-12 col-md-4"><h2 class="h5">Subscribe to our Newsletter</h2><p>Get the most important stories in your inbox.</p><form onsubmit="event.preventDefault();this.querySelector('button').textContent='Subscribed';"><div class="input-group mb-3"><input type="email" class="form-control" placeholder="Your email" aria-label="Your email" required><button class="btn btn-primary" type="submit">Subscribe</button></div></form></div>
+  </div><div class="row"><div class="col-12 text-center copyright">© 2026 Daily News. All rights reserved.</div></div></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</body>
+</html>
